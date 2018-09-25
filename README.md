@@ -17,8 +17,8 @@ Send payload (1 + 8 + 16 = 25 Byte) as followed:
 50 11 22 33 44 55 66 77 88 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16
 |  |                       |
 |  |                       --- APPKEY
-|  ---------------------------- APPEUI
-------------------------------- Command indicator for provisioning 'P'
+|  --------------------------- APPEUI
+------------------------------ Command indicator for provisioning 'P'
 ```
 ### Reboot
 Send 00
