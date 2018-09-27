@@ -11,7 +11,7 @@
 #include "provisioning.h"
 #include "session.h"
 #include "power.h"
-#include "user.h"
+#include "user/user.h"
 
 static u1_t DEVEUI[8];
 static u1_t APPEUI[8] = PROVISIONING_APPEUI; //Initialize for provisioning
@@ -366,8 +366,8 @@ void loop() {
     Serial.println("Reboot now");
     ESP.restart();
   } else if (state == DELAYED_SLEEP && target_millis < millis()) {
-    user_sleep(power_get_sleep());
-    power_sleep(power_get_sleep());
+    if (user_sleep(power_get_sleep()) == false) //Put to sleep if user didn't do this
+      power_sleep(power_get_sleep());
   } else if (state == SHUTDOWN && target_millis < millis()) {
     power_shutdown();
   }
