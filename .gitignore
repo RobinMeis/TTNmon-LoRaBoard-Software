@@ -1,6 +1,9 @@
 #Config file
 config.h
 
+#Use plugin
+user/
+
 # Prerequisites
 *.d
 
