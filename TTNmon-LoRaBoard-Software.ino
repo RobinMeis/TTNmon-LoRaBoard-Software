@@ -153,8 +153,8 @@ void onEvent (ev_t ev) {
               } else {
                 int seconds = power_get_sleep();
                 Serial.println(seconds);
-                user_sleep(seconds);
-                power_sleep(seconds);
+                if (user_sleep(power_get_sleep()) == false) //Put to sleep if user didn't do this
+                  power_sleep(seconds);
               }
             }
             // Schedule next transmission
