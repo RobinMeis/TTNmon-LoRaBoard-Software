@@ -3,6 +3,7 @@ config.h
 
 #Use plugin
 user/
+user-*/
 
 # Prerequisites
 *.d
